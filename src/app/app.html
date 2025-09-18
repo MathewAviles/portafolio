@@ -1,0 +1,113 @@
+<div class="container">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" (click)="scrollTo('inicio')">
+        Inicio
+      </a>
+    </div>
+    <div class="navbar-menu">
+      <div class="navbar-start">
+        
+        <a class="navbar-item" (click)="scrollTo('proyectos')">
+          Proyectos
+        </a>
+        <a class="navbar-item" (click)="scrollTo('acerca')">
+          Acerca de mi
+        </a>
+        <a class="navbar-item" (click)="scrollTo('skills')">
+          Skills
+        </a>
+      </div>
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="field">
+            <div class="control">
+              <button class="button" (click)="toggleTheme()">
+                <span class="icon">
+                  <i class="fas" [ngClass]="isDarkMode() ? 'fa-sun' : 'fa-moon'"></i>
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <section id="inicio" class="section">
+    <div class="profile-container">
+        <img class="profile-image" src="/resources/Mathew Aviles.jpg" alt="Mathew Avilés">
+        <h1 class="title">Mathew Avilés</h1>
+        <h2 class="subtitle">Ingeniero de Software / Fullstack Developer</h2>
+        <p class="description">Desarrollo soluciones en Python, Java, C# con experiencia en bases de datos SQL y PostgreSQL.</p>
+        <a href="/resources/Mathew Aviles CV.pdf" class="button-cv" download>Descargar CV</a>
+    </div>
+  </section>
+
+  <section id="proyectos" class="section">
+    <h2>Proyectos</h2>
+    <div class="project-grid">
+      @for (project of projects; track project.name) {
+        <div class="project-card">
+          <img [src]="project.images[project.currentImageIndex]" [alt]="project.name" [class.fade-out]="project.fadingOut">
+          <div class="card-content">
+            <h3>{{ project.name }}</h3>
+            <p>{{ project.description }}</p>
+            <div class="technologies">
+              @for (tech of project.technologies; track tech.name) {
+                <div class="tech-tag">
+                  <i [class]="tech.icon"></i>
+                  <span>{{ tech.name }}</span>
+                </div>
+              }
+            </div>
+            <a [href]="project.githubUrl" class="github-link" target="_blank">
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+        </div>
+      }
+    </div>
+  </section>
+
+  <section id="acerca" class="section">
+    <h2>Acerca de mi</h2>
+    <p>Dentro de mi experiencia, desarrollé un sistema de inventario y facturación para el local de comida rápida Centaurus Fast Food, utilizando C# como tecnología principal. El sistema permitió gestionar productos, controlar el inventario en tiempo real y automatizar el proceso de facturación, optimizando la eficiencia operativa del negocio. Este proyecto me permitió aplicar buenas prácticas de programación, diseño de bases de datos y enfoque en la experiencia del usuario final.</p>
+    <p>Me considero una persona proactiva, orientada a resultados y con facilidad para aprender nuevas tecnologías, cualidades que me permiten integrarme a equipos de desarrollo y contribuir al crecimiento de las organizaciones.</p>
+    <div class="social-links">
+      <a href="https://github.com/MathewAviles" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-github"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/mathew-aviles-6555472b3/" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-linkedin"></i>
+      </a>
+      <a href="mailto:juanaviles12345@gmail.com">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </div>
+  </section>
+
+  <section id="skills" class="section">
+    <h2>Skills</h2>
+    <div class="skills-grid">
+      @for (category of skills; track category.category) {
+        <div class="skill-category">
+            <h3>{{ category.category }}</h3>
+            <div class="skill-cards">
+              @for (skill of category.items; track skill.name) {
+                <div class="skill-card">
+                    <i [class]="skill.icon"></i>
+                    <span>{{ skill.name }}</span>
+                    @if (skill.level) {
+                      <span class="skill-level" [style.backgroundColor]="category.color">{{ skill.level }}</span>
+                    }
+                </div>
+              }
+            </div>
+        </div>
+      }
+    </div>
+  </section>
+</div>
+
+<router-outlet></router-outlet>

@@ -1,0 +1,333 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  background-color: var(--color-bg-secondary);
+  border-radius: 0 0 1rem 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--color-border);
+  border-top: 0;
+}
+
+.navbar-brand .navbar-item {
+  font-weight: 500;
+  font-size: 1.25rem;
+  text-decoration: none;
+  color: var(--color-text);
+  cursor: pointer;
+}
+
+.navbar-menu {
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-between;
+}
+
+.navbar-start {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.navbar-start .navbar-item {
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.navbar-start .navbar-item:hover {
+  color: var(--color-primary);
+}
+
+.navbar-end {
+  margin-left: auto;
+}
+
+.navbar-item .button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: var(--color-text-secondary);
+  font-size: 1.25rem;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.section {
+  padding: 4rem 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.section:last-child {
+  border-bottom: none;
+}
+
+.section h2 {
+  font-size: 2rem;
+  font-weight: 500;
+  margin-bottom: 2rem;
+  color: var(--color-text);
+}
+
+.profile-container {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--color-text-secondary);
+    margin-bottom: 1rem;
+}
+
+.description {
+    font-size: 1.125rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 2rem;
+}
+
+.button-cv {
+    display: inline-block;
+    background-color: var(--color-primary);
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.button-cv:hover {
+    background-color: #055cc6;
+}
+
+.profile-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--color-bg-secondary);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.social-links a {
+  font-size: 2rem;
+  color: var(--color-text-secondary);
+  transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+  color: var(--color-primary);
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.skill-category h3 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.skill-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.skill-card {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: var(--color-bg-secondary);
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--color-border);
+    font-size: 1rem;
+    overflow: hidden;
+}
+
+.skill-card .skill-level {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: left 0.3s ease;
+}
+
+.skill-card:hover .skill-level {
+    left: 0;
+}
+
+.skill-card i {
+    font-size: 1.5rem;
+}
+
+:host-context(.dark) .navbar {
+  background-color: var(--color-bg-secondary);
+  border-bottom-color: var(--color-border);
+}
+
+:host-context(.dark) .navbar-brand .navbar-item,
+:host-context(.dark) .navbar-start .navbar-item {
+  color: var(--color-text);
+}
+
+:host-context(.dark) .navbar-item .button {
+  color: var(--color-text-secondary);
+}
+
+:host-context(.dark) .container {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+:host-context(.dark) .section {
+  border-bottom-color: var(--color-border);
+}
+
+:host-context(.dark) .social-links a {
+  color: var(--color-text-secondary);
+}
+
+:host-context(.dark) .social-links a:hover {
+  color: var(--color-primary);
+}
+
+:host-context(.dark) .skill-card {
+    background-color: var(--color-bg-secondary);
+    border-color: var(--color-border);
+}
+
+:host-context(.dark) .button-cv:hover {
+    background-color: #1e6ed8;
+}
+
+#acerca p {
+  text-align: justify;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.project-card {
+  background-color: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+}
+
+.project-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: opacity 0.5s ease-in-out;
+  opacity: 1;
+}
+
+.project-card img.fade-out {
+  opacity: 0;
+}
+
+.project-card .card-content {
+  padding: 1.5rem;
+  position: relative;
+}
+
+.project-card h3 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.project-card p {
+  color: var(--color-text-secondary);
+  margin-bottom: 4rem;
+}
+
+.technologies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.tech-tag {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--color-border);
+  padding: 0.25rem 0.75rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.tech-tag i {
+  font-size: 1rem;
+}
+
+.github-link {
+  position: absolute;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  color: var(--color-text-secondary);
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.github-link:hover {
+  background-color: var(--color-primary);
+  color: #fff;
+  border-color: var(--color-primary);
+}
+
+:host-context(.dark) .github-link:hover {
+    background-color: #1e6ed8;
+}
