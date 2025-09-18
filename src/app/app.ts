@@ -25,6 +25,7 @@ interface Project {
 export class App implements OnInit, OnDestroy {
   protected readonly title = signal('portafolio');
   isDarkMode = signal(false);
+  isMenuOpen = signal(false);
 
   private intervals: any[] = [];
 
@@ -97,6 +98,10 @@ export class App implements OnInit, OnDestroy {
     this.intervals.forEach(interval => clearInterval(interval));
   }
 
+  toggleMenu() {
+    this.isMenuOpen.set(!this.isMenuOpen());
+  }
+
   toggleTheme() {
     this.isDarkMode.set(!this.isDarkMode());
     if (this.isDarkMode()) {
@@ -108,6 +113,7 @@ export class App implements OnInit, OnDestroy {
 
   scrollTo(section: string) {
     document.getElementById(section)?.scrollIntoView({ behavior: 'smooth' });
+    this.isMenuOpen.set(false); // Close menu on navigation
   }
 
   skills = [
