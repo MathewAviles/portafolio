@@ -89,7 +89,7 @@ export class App implements OnInit, OnDestroy {
           project.currentImageIndex = (project.currentImageIndex + 1) % project.images.length;
           project.fadingOut = false;
         }, 500); // Corresponds to the animation duration
-      }, 2000);
+      }, 4000);
       this.intervals.push(interval);
     });
   }
